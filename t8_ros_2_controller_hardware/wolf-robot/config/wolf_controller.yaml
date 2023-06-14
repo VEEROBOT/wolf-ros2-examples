@@ -12,7 +12,7 @@ controller_manager:
 diff_cont:
   ros__parameters:
 
-    publish_rate: 28.0
+    publish_rate: 50.0
 
     base_frame_id: base_link
 
@@ -40,6 +40,19 @@ diff_cont:
     # cmd_vel_timeout: x
     # publish_limited_velocity: x
     # velocity_rolling_window_size: x
+
+    # Velocity and acceleration limits
+    # Whenever a min_* is unspecified, default to -max_*
+
+    linear.x.has_velocity_limits: true
+    linear.x.max_velocity: 2.0 # m/s
+    linear.x.has_acceleration_limits: true
+    linear.x.max_acceleration: 20.0 # m/s^2
+
+    angular.z.has_velocity_limits: true
+    angular.z.max_velocity: 4.0 # rad/s
+    angular.z.has_acceleration_limits: true
+    angular.z.max_acceleration: 25.0 # rad/s^2
 
     # linear.x.has_velocity_limits: false
     # linear.x.has_acceleration_limits: false
